@@ -1,3 +1,5 @@
+import * as Schema from "mongoose";
+
 const mongoose = require('mongoose');
 
 const messageSchema =  new Schema({
