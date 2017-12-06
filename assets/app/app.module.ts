@@ -5,11 +5,13 @@ import { AppComponent } from "./app.component";
 import {MessageComponent} from "./messages/message.component";
 import {FormsModule} from "@angular/forms";
 import {Message} from "./messages/message.model";
+import {MessageListComponent} from "./messages/message-list.component";
 
 @NgModule({
     declarations: [
         AppComponent,
-        MessageComponent
+        MessageComponent,
+        MessageListComponent
     ],
     imports: [BrowserModule,
     FormsModule],
