@@ -6,12 +6,14 @@ import {MessageComponent} from "./messages/message.component";
 import {FormsModule} from "@angular/forms";
 import {Message} from "./messages/message.model";
 import {MessageListComponent} from "./messages/message-list.component";
+import {MessageInputComponent} from "./messages/message-input.component";
 
 @NgModule({
     declarations: [
         AppComponent,
         MessageComponent,
-        MessageListComponent
+        MessageListComponent,
+        MessageInputComponent
     ],
     imports: [BrowserModule,
     FormsModule],
