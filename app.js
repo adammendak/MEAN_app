@@ -9,7 +9,7 @@ const mongoose = require('mongoose')
 const appRoutes = require('./routes/app');
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://127.0.0.1:27017');
+mongoose.connect('mongodb://127.0.0.1:27017/node-angular');
 
 const app = express();
 

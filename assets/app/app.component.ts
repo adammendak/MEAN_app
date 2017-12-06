@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
     message = {
         content: 'A message',
-        author: 'Adam'
+        username: 'Adam'
     }
     
 }
