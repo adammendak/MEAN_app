@@ -8,7 +8,10 @@ var mongoose = require('mongoose');
 
 var appRoutes = require('./routes/app');
 var messageRoutes = require('./routes/messages');
+<<<<<<< HEAD
 var userRoutes = require('./routes/user');
+=======
+>>>>>>> ed0acfaab141595563c844d10cc87060abb90cd9
 
 var app = express();
 mongoose.connect('localhost:27017/node-angular');
@@ -33,7 +36,10 @@ app.use(function (req, res, next) {
 });
 
 app.use('/message', messageRoutes);
+<<<<<<< HEAD
 app.use('/user', userRoutes);
+=======
+>>>>>>> ed0acfaab141595563c844d10cc87060abb90cd9
 app.use('/', appRoutes);
 
 
