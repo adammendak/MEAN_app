@@ -5,12 +5,14 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var cors = require('cors');
 
 var appRoutes = require('./routes/app');
 var userRoutes = require('./routes/user');
 var messageRoutes = require('./routes/messages');
 
 var app = express();
+mongoose.Promise = global.Promise;
 mongoose.connect('localhost:27017/node-angular');
 
 // view engine setup
@@ -24,6 +26,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors());
 
 app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
