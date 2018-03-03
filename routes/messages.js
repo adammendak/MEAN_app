@@ -1,11 +1,11 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-var Message = require('../models/message');
+const Message = require('../models/message');
 
-router.get('/', function (req, res, next) {
+router.get('/', (req, res, next) => {
     Message.find()
-        .exec(function (err, messages) {
+        .then((err, messages) => {
             if (err) {
                 return res.status(500).json({
                     title: 'An error occurred',
@@ -19,11 +19,11 @@ router.get('/', function (req, res, next) {
         });
 });
 
-router.post('/', function (req, res, next) {
-    var message = new Message({
+router.post('/', (req, res, next) => {
+    let message = new Message({
         content: req.body.content
     });
-    message.save(function (err, result) {
+    message.save((err, result) => {
         if (err) {
             return res.status(500).json({
                 title: 'An error occurred',
@@ -37,8 +37,8 @@ router.post('/', function (req, res, next) {
     });
 });
 
-router.patch('/:id', function (req, res, next) {
-    Message.findById(req.params.id, function (err, message) {
+router.patch('/:id', (req, res, next) => {
+    Message.findById(req.params.id, (err, message) => {
         if (err) {
             return res.status(500).json({
                 title: 'An error occurred',
@@ -52,7 +52,7 @@ router.patch('/:id', function (req, res, next) {
             });
         }
         message.content = req.body.content;
-        message.save(function(err, result) {
+        message.save((err, result) => {
             if (err) {
                 return res.status(500).json({
                     title: 'An error occurred',
@@ -67,8 +67,8 @@ router.patch('/:id', function (req, res, next) {
     });
 });
 
-router.delete('/:id', function(req, res, next) {
-    Message.findById(req.params.id, function (err, message) {
+router.delete('/:id', (req, res, next) => {
+    Message.findById(req.params.id, (err, message) => {
         if (err) {
             return res.status(500).json({
                 title: 'An error occurred',
@@ -81,7 +81,7 @@ router.delete('/:id', function(req, res, next) {
                 error: {message: 'Message not found'}
             });
         }
-        message.remove(function(err, result) {
+        message.remove((err, result) => {
             if (err) {
                 return res.status(500).json({
                     title: 'An error occurred',
