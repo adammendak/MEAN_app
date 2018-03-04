@@ -3,6 +3,7 @@ import { NgForm } from "@angular/forms";
 
 import { MessageService } from "./message.service";
 import { Message } from "./message.model";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-message-input',
@@ -11,7 +12,7 @@ import { Message } from "./message.model";
 export class MessageInputComponent implements OnInit {
     message: Message;
 
-    constructor(private messageService: MessageService) {}
+    constructor(private messageService: MessageService, private router:Router) {}
 
     onSubmit(form: NgForm) {
         if (this.message) {
@@ -32,6 +33,8 @@ export class MessageInputComponent implements OnInit {
                 );
         }
         form.resetForm();
+        this.router.navigate(['/messages']);
+
     }
 
     onClear(form: NgForm) {

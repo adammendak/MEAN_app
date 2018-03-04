@@ -29,7 +29,7 @@ export class SigninComponent {
                     this.router.navigate(['/']);
                 },
                 error => console.log(error));
-        this.router.navigate(['/messages']);
+        this.router.navigate(['/messages+?token=' + localStorage.getItem('token')]);
     }
 
     ngOnInit() {
