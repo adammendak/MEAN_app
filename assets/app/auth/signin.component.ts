@@ -29,7 +29,7 @@ export class SigninComponent {
                     this.router.navigate(['/']);
                 },
                 error => console.log(error));
-        this.myForm.reset();
+        this.router.navigate(['/messages']);
     }
 
     ngOnInit() {
